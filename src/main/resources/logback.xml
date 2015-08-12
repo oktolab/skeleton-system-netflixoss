@@ -1,0 +1,49 @@
+<!-- http://logback.qos.ch/access.html -->
+<!-- http://blog.takipi.com/how-to-instantly-improve-your-java-logging-with-7-logback-tweaks/ -->
+<!-- http://logback.qos.ch/manual/appenders.html -->
+<configuration scan="true" scanPeriod="5 minutes">
+<!-- Arquivo de propriedades do log, para apontar para um arquivo externo utilize file="path/file" -->
+	<property resource="logconfig.properties" />
+
+	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${USER_HOME}/${FILE_NAME}.txt</file>
+		
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{dd-MM-yyyy@HH:mm:ss,SSS} [%thread] %-5level %class:%L - %m%n</pattern>
+		</encoder>
+		
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/${FILE_NAME}-%d{yyyy-MM}.%i.txt</fileNamePattern>
+			<maxHistory>200</maxHistory>
+			<cleanHistoryOnStart>false</cleanHistoryOnStart>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>10MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+	      <pattern>%d{dd-MM-yyyy@HH:mm:ss,SSS} [%thread] %-5level %logger{35} - %m%n</pattern>
+	    </encoder>
+	</appender>
+	
+	<appender name="ASYNC_ROLLING" class="ch.qos.logback.classic.AsyncAppender">
+    	<appender-ref ref="ROLLING" />
+  	</appender>
+  	
+  	<appender name="ASYNC_STDOUT" class="ch.qos.logback.classic.AsyncAppender">
+    	<appender-ref ref="STDOUT" />
+  	</appender>
+	
+	<logger name="io.netty.util.internal" level="INFO" />
+	
+	<logger name="br.com.okto" level="DEBUG" />
+	<logger name="br.com.oktolab" level="DEBUG" />
+	
+	<root level="DEBUG">
+<!-- 		<appender-ref ref="ASYNC_ROLLING" /> -->
+		<appender-ref ref="ASYNC_STDOUT" />
+	</root>
+</configuration>

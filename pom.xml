@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.oktolab</groupId>
+	<artifactId>skeleton-system-netflixoss</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.oktolab.netflixoss</groupId>
+			<artifactId>netty-jersey-starter</artifactId>
+			<version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<!-- Metrics -->
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-rx-netty-metrics-stream</artifactId>
+			<version>1.4.12</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-yammer-metrics-publisher</artifactId>
+			<version>1.4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yammer.metrics</groupId>
+			<artifactId>metrics-core</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yammer.metrics</groupId>
+			<artifactId>metrics-graphite</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+
+
+
+		<!-- <dependency> -->
+		<!-- <groupId>com.netflix.hystrix</groupId> -->
+		<!-- <artifactId>hystrix-codahale-metrics-publisher</artifactId> -->
+		<!-- <version>1.4.12</version> -->
+		<!-- </dependency> -->
+
+		<!-- <dependency> -->
+		<!-- <groupId>io.dropwizard.metrics</groupId> -->
+		<!-- <artifactId>metrics-core</artifactId> -->
+		<!-- <version>3.1.2</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.yammer.metrics</groupId> -->
+		<!-- <artifactId>metrics-graphite</artifactId> -->
+		<!-- <version>2.1.2</version> -->
+		<!-- </dependency> -->
+
+	</dependencies>
+
+</project>

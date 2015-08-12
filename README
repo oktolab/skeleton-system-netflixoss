@@ -1,0 +1,30 @@
+docker run -d     -p 8070:80 -p 2003:2003 -p 8125:8125/udp -p 8126:8126     --name grafana-dashboard     choopooly/grafana_graphite;
+docker run -d -p 80:80 -p 8125:8125/udp -p 8126:8126 --name kamon-grafana-dashboard kamon/grafana_graphite
+docker run -d     -p 8070:80 -p 2003:2003 -p 8125:8125/udp -p 8126:8126     --name grafana-dashboard     grafana-graphite;
+
+
+
+
+docker pull choopooly/grafana-graphite
+docker run -d \
+    -p 8070:80 -p 2003:2003 -p 8125:8125/udp -p 8126:8126 \
+    --name grafana-dashboard \
+    choopooly/grafana-graphite
+
+
+docker run grafana-dashboard
+docker start grafana-dashboard
+
+docker ps (listar)
+
+docker stop (nr)
+
+
+Dashboard Hystrix
+- Acompanhamento real time sobre a execução dos comandos
+-> criar algo baseado em -> KaryonJerseyModule extends KaryonHttpModule<ByteBuf, ByteBuf>?
+
+Dashboard Grafana
+- Historico sobre a saude dos comandos Hystrix
+-> criar algo baseado em -> KaryonJerseyModule extends KaryonHttpModule<ByteBuf, ByteBuf>?
+
