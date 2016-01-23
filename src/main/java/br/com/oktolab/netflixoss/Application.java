@@ -28,14 +28,14 @@ public class Application {
 		server = ApplicationBootstrap.run(Application.class, new Module[]{
 //			new KaryonWebAdminModule()});
 		});
-		configHystrixPlugins();
-		startHystrixDashBoardStream();
-		startGraphiteReporter();
+//		configHystrixPlugins();
+//		startHystrixDashBoardStream();
+//		startGraphiteReporter();
 		server.waitTillShutdown();
 	}
 
 	private static void startGraphiteReporter() {
-		GraphiteReporter.enable(2000l, TimeUnit.MILLISECONDS, "127.0.0.1", 2003);
+		GraphiteReporter.enable(5000l, TimeUnit.MILLISECONDS, "127.0.0.1", 2003);
 	}
 
 	private static void configHystrixPlugins() {

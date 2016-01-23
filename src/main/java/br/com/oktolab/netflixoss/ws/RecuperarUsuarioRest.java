@@ -1,12 +1,12 @@
 package br.com.oktolab.netflixoss.ws;
 
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.com.oktolab.netflixoss.command.RecuperarUsuarioCommand;
-import br.com.oktolab.netflixoss.nettyrest.provider.annotation.BeanParam;
 import br.com.oktolab.netflixoss.ws.dto.RecuperarUsuarioDTO;
 
 /**

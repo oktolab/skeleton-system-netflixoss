@@ -6,14 +6,14 @@
 	<property resource="logconfig.properties" />
 
 	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>${USER_HOME}/${FILE_NAME}.txt</file>
+		<file>log_${FILE_NAME}.log</file>
 		
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<pattern>%d{dd-MM-yyyy@HH:mm:ss,SSS} [%thread] %-5level %class:%L - %m%n</pattern>
 		</encoder>
 		
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${USER_HOME}/${FILE_NAME}-%d{yyyy-MM}.%i.txt</fileNamePattern>
+			<fileNamePattern>back.%i.${FILE_NAME}-%d{yyyy-MM}.log</fileNamePattern>
 			<maxHistory>200</maxHistory>
 			<cleanHistoryOnStart>false</cleanHistoryOnStart>
 			<timeBasedFileNamingAndTriggeringPolicy
@@ -37,13 +37,15 @@
     	<appender-ref ref="STDOUT" />
   	</appender>
 	
-	<logger name="io.netty.util.internal" level="INFO" />
+	<logger name="io.netty" level="WARN" />
 	
-	<logger name="br.com.okto" level="DEBUG" />
-	<logger name="br.com.oktolab" level="DEBUG" />
+<!-- 	<logger name="br.com.okto" level="DEBUG" /> -->
+<!-- 	<logger name="br.com.oktolab" level="DEBUG" /> -->
+<!-- 	<logger name="com.netflix.hystrix" level="DEBUG" /> -->
+<!-- 	<logger name="com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty" level="INFO" /> -->
 	
-	<root level="DEBUG">
-<!-- 		<appender-ref ref="ASYNC_ROLLING" /> -->
+	<root level="WARN">
+		<appender-ref ref="ASYNC_ROLLING" />
 		<appender-ref ref="ASYNC_STDOUT" />
 	</root>
 </configuration>

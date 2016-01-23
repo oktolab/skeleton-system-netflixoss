@@ -18,7 +18,7 @@ public class CustomEventNotifier extends HystrixEventNotifier {
     public static HystrixEventNotifier getInstance() {
         return INSTANCE;
     }
-	// autoria de execução
+	// auditoria de execução
 	@Override
 	public void markCommandExecution(HystrixCommandKey key,
 			ExecutionIsolationStrategy isolationStrategy, int duration,
